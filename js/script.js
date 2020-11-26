@@ -1,31 +1,21 @@
-"use sctrict";
-// let number = 4.6;
+"use strict";
 
-// console.log(4/0);
-// console.log('str' * 9);
-// console.log(something);
+const numderOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-// const obj = {
-//     name: 'John',
-//     age: 26,
-//     isMarried: false
-// }
-// console.log(obj);
+const personlMovieDB = {
+    count:numderOfFilms,
+    movies:{},
+    actors:{},
+    genres:[],
+    privat: false
+};
 
-// let arr = ['plum.pmg', 'orange.jpg', 8, 'apple.txt', {}, []];
-// console.log(arr);
+const a = prompt('Один из последних просмотренных фильмов?', ''),
+      b = prompt('На сколько оцените его?',''), 
+      c = prompt('Один из последних просмотренных фильмов?', ''),
+      d = prompt('На сколько оцените его?', ''); 
 
+personlMovieDB.movies[a] = b;
+personlMovieDB.movies[c] = d;
 
-// let result = +prompt('Вы есть 18?', '18');
-// console.log(typeof(result));
-
-// const answers = [];
-// answers[0] = prompt("Как вас зовут?", '');
-// answers[1] = prompt('Какая у вас фамилия', '');
-// answers[2] = prompt('Сколько вам лет?', '');
-// document.write(answers);
-
-const category = 'tous';
-console.log(`https//some.rt.com/${category}/5`);
-const user = 'ivan';
-alert(`Hello ${user}`);
+console.log(personlMovieDB);
