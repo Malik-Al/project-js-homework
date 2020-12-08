@@ -220,72 +220,102 @@
 // console.log(obj);
 
 
-function copy(mainObj){         // функция копирования
-    let ObjCopy = {};
+// function copy(mainObj){         // функция копирования
+//     let ObjCopy = {};
 
-    let key;
-    for (key in mainObj){
-        ObjCopy[key] = mainObj[key]
-    }
-    return ObjCopy;
-}
+//     let key;
+//     for (key in mainObj){
+//         ObjCopy[key] = mainObj[key]
+//     }
+//     return ObjCopy;
+// }
 
-const numder = {
-    a:2,
-    b:5,
-    c:{
-        x:7,
-        y:4
-    }
-};
+// const numder = {
+//     a:2,
+//     b:5,
+//     c:{
+//         x:7,
+//         y:4
+//     }
+// };
 
-const newNumder = copy(numder); // копирования
+// const newNumder = copy(numder); // копирования
 
-newNumder.a = 10;          // копирования 
-newNumder.c.x = 10;
-console.log(newNumder);
-console.log(numder);
+// newNumder.a = 10;          // копирования 
+// newNumder.c.x = 10;
+// console.log(newNumder);
+// console.log(numder);
 
-const add = {
-    d:7,
-    e:20
-};
-// console.log(Object.assign(numder, add));   // поверхностное копирования 
-const clone = Object.assign({}, add);         // поверхностное копирования объектов  
-clone.d = 20;
-console.log(add);
-console.log(clone);
+// const add = {
+//     d:7,
+//     e:20
+// };
+// // console.log(Object.assign(numder, add));   // поверхностное копирования 
+// const clone = Object.assign({}, add);         // поверхностное копирования объектов  
+// clone.d = 20;
+// console.log(add);
+// console.log(clone);
 
       // поверхностное копирования объектов  
-const oldArray = ['a', 'b', 'c', 'd'];
-const newArray = oldArray.slice();
-newArray[0] = 'f';
-console.log(newArray);
-console.log(oldArray);
+// const oldArray = ['a', 'b', 'c', 'd'];
+// const newArray = oldArray.slice();
+// newArray[0] = 'f';
+// console.log(newArray);
+// console.log(oldArray);
 
-const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'livejournal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'facebook']; // оператор разворота 
+// const video = ['youtube', 'vimeo', 'rutube'],
+//       blogs = ['wordpress', 'livejournal', 'blogger'],
+//       internet = [...video, ...blogs, 'vk', 'facebook']; // оператор разворота 
 
-console.log(internet);   
+// console.log(internet);   
 
-// оператор разворота 
-function log(a, b, c){
-    console.log(a);
-    console.log(b);
-    console.log(c);
-}
-const num = [2, 5, 7];
-log(...num);
+// // оператор разворота 
+// function log(a, b, c){
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// const num = [2, 5, 7];
+// log(...num);
 
 
-const array = ['a', 'b'];
-const newArraay = [...array];
-const g = {
-    one:1,
-    two:2
+// const array = ['a', 'b'];
+// const newArraay = [...array];
+// const g = {
+//     one:1,
+//     two:2
+// };
+// const newObj = {...g};
+
+
+// console.log(newObj);
+
+
+        //ООП
+let str = 'some';
+let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+console.dir([1,2,3]);
+
+const soldier = {
+    health:400,
+    armor:100,
+    sayHello: function(){
+        console.log("Hello");
+    }
 };
-const newObj = {...g};
 
+// const john = {
+//     health:100
+// };
 
-console.log(newObj);
+//john.__proto__ = soldier;                 // устареыший формат прототипа
+//Object.setPrototypeOf(john, soldier);     // новый формат прототипа 
+const john = Object.create(soldier);        // часто применяемый формат прототипа
+
+console.log(john);
+console.log(john.armor);
+john.sayHello();
