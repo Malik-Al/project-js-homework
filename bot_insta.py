@@ -59,6 +59,7 @@
 
 
 name = input('как тебя зовут ?')
+
 if name == 'malik':
 	print('Привет %s '%(name))
 else:

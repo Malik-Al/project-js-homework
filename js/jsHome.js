@@ -292,21 +292,21 @@
 
 
         //ООП
-let str = 'some';
-let strObj = new String(str);
+// let str = 'some';
+// let strObj = new String(str);
 
 // console.log(typeof(str));
 // console.log(typeof(strObj));
 
-console.dir([1,2,3]);
+// console.dir([1,2,3]);
 
-const soldier = {
-    health:400,
-    armor:100,
-    sayHello: function(){
-        console.log("Hello");
-    }
-};
+// const soldier = {
+//     health:400,
+//     armor:100,
+//     sayHello: function(){
+//         console.log("Hello");
+//     }
+// };
 
 // const john = {
 //     health:100
@@ -314,8 +314,36 @@ const soldier = {
 
 //john.__proto__ = soldier;                 // устареыший формат прототипа
 //Object.setPrototypeOf(john, soldier);     // новый формат прототипа 
-const john = Object.create(soldier);        // часто применяемый формат прототипа
+// const john = Object.create(soldier);        // часто применяемый формат прототипа
 
-console.log(john);
-console.log(john.armor);
-john.sayHello();
+// console.log(john);
+// console.log(john.armor);
+// john.sayHello();
+
+//Задачки
+
+[] + false - null + true // Ответ: NaN
+
+let y = 1;
+let x = y = 2;
+alert(x); //Ответ: 2
+
+console.log([] + 1 + 2); // Ответ:'12'
+
+alert('1'[0]); // Ответ: 1
+
+console.log(2 && 1 && null && 0 && undefined); // Ответ: после null не проходит проверка 
+                                               // И запинаеться на лжи
+                                               // ИЛИ запинаеться на правде                         
+
+console.log(!!(1 && 2) === (1 && 2)); // Ответ: false
+
+alert(null || 2 && 3 || 4);  // Ответ: 3
+
+const a =  [1,2,3];
+const b =  [1,2,3];
+console.log(a == b); // Ответ: false
+
+alert(+'infinity'); // Ответ: infinity
+console.log("Ёжик" > "яблоко"); // Ответ: false 
+console.log(0 || "" || 2 || undefined || true || false); // Ответ: 2 ,"true"
