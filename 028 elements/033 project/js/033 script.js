@@ -41,13 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {  // с работает п
           checkbox = addForm.querySelector('[type="checkbox"]'); 
     
 
-    addForm.addEventListener('submit', (event) =>{   // Колбек функция, обработка submit
-        event.preventDefault();                      // измениет поведение браузера по умолчанию 
+    addForm.addEventListener('submit', (event) =>{      // Колбек функция, обработка submit
+        event.preventDefault();                         // измениет поведение браузера по умолчанию 
 
-        const newFilm = addInput.value;              // возвращает значения по клику    
-        const favorite = checkbox.checked;           // возвращает булево значения   
+        let newFilm = addInput.value;                   // возвращает значения по клику    
+        const favorite = checkbox.checked;              // возвращает булево значения   
 
         if (newFilm){
+            if (newFilm.length > 21){                       // высчитать количество вводных данных 
+                newFilm = `${newFilm.substring(0,22)}...`;  // обрезать если превышает 23 вводных данных и добавить троеточие
+            }
             movieDB.movies.push(newFilm);                 // Добавление фильма в конец массива
             sortArr(movieDB.movies);                      // Сортировка фильмов                          
             createMovieList(movieDB.movies, movieList);
