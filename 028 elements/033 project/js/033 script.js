@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {  // с работает п
     
     function createMovieList(films, parent){
         parent.innerHTML = "";
-
+        sortArr(films);
         films.forEach((film, i ) =>{
             parent.innerHTML += `
             <li class="promo__interactive-item">${i +1} ${film}
@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {  // с работает п
 
     deleteAdv(adv);
     makeChanges();
-    sortArr(movieDB.movies);
     createMovieList(movieDB.movies, movieList);
 
 
