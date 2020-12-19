@@ -93,6 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {  // с работает п
             </li>
             `;
         });
+
+        document.querySelectorAll('.delete').forEach((btn,i) => {   // перебор данных
+            btn.addEventListener('click', () =>{                    // объявления событий по клику 
+                btn.parentElement.remove();                         // удаление данных
+                movieDB.movies.splice(i,1);                         // удаление из базы данных
+                createMovieList(films, parent);                     // рекурсия для обновления нумераций     
+            });
+        });
     }
 
 
