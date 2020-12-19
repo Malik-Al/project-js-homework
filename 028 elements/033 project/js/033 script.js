@@ -51,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {  // с работает п
             if (newFilm.length > 21){                       // высчитать количество вводных данных 
                 newFilm = `${newFilm.substring(0,22)}...`;  // обрезать если превышает 23 вводных данных и добавить троеточие
             }
+            if(favorite){
+                console.log("Добавляем любимый фильм");
+            }
             movieDB.movies.push(newFilm);                 // Добавление фильма в конец массива
             sortArr(movieDB.movies);                      // Сортировка фильмов                          
             createMovieList(movieDB.movies, movieList);
