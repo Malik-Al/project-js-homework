@@ -42,34 +42,49 @@ document.addEventListener('DOMContentLoaded', () => {  // с работает п
     
 
     addForm.addEventListener('submit', (event) =>{   // Колбек функция, обработка submit
-        event.preventDefault();
+        event.preventDefault();                      // измениет поведение браузера по умолчанию 
 
-        const newFilm = addInput.value;
-        const favorite = checkbox.checked;
+        const newFilm = addInput.value;              // возвращает значения по клику    
+        const favorite = checkbox.checked;           // возвращает булево значения   
 
-        movieDB.movies.push(newFilm);                 // Добавление фильма в конец массива
-        movieDB.movies.sort();                        // Сортировка фильмов                          
+        if (newFilm){
+            movieDB.movies.push(newFilm);                 // Добавление фильма в конец массива
+            sortArr(movieDB.movies);                      // Сортировка фильмов                          
+            createMovieList(movieDB.movies, movieList);
+        }    
+
+        event.target.reset();
+
     });      
     
 
-    adv.forEach(item => {   
-        item.remove();
-    });
     
-    
-    genre.textContent = 'Драма';
-    
+    const deleteAdv = (arr) => {
+        arr.forEach(item => {   
+            item.remove();
+        });
+    };
    
-    poster.style.backgroundImage = "url('img/bg.jpg')";
+    
+    
+    const makeChanges = () => {
+        genre.textContent = 'Драма';
+        poster.style.backgroundImage = "url('img/bg.jpg')";
+    };
+  
+ 
+
+    const sortArr = (arr) => {
+        arr.sort();
+    };
     
  
-    movieDB.movies.sort();
- 
     
-    function createMovieList(){
-        movieList.innerHTML = "";
-        movieDB.movies.forEach((film, i ) =>{
-            movieList.innerHTML += `
+    function createMovieList(films, parent){
+        parent.innerHTML = "";
+
+        films.forEach((film, i ) =>{
+            parent.innerHTML += `
             <li class="promo__interactive-item">${i +1} ${film}
                 <div class="delete"></div>
             </li>
@@ -78,6 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {  // с работает п
     }
 
 
+    deleteAdv(adv);
+    makeChanges();
+    sortArr(movieDB.movies);
+    createMovieList(movieDB.movies, movieList);
 
 
 
